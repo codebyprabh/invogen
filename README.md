@@ -1,69 +1,51 @@
-# React + TypeScript + Vite
+# 🧾 Invo-Gen
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Invo-Gen** is a simple, clean React + TypeScript + Vite app that lets users generate invoices with ease.  
+Built for contractors/freelancers who want to quickly fill in invoice details and export them with minimal friction.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✅ Current Features
 
-## Expanding the ESLint configuration
+- ⚡ Fast frontend using **React + Vite**
+- 🎨 Fully polished **responsive layout**
+- 🧾 Organized **invoice form with validation**
+- 📦 Custom **template selection** via image button
+- 📱 Mobile-friendly and clean UX
+- 💡 Built with Tailwind CSS
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 📷 Preview
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+> <img width="1372" height="890" alt="image" src="https://github.com/user-attachments/assets/06171ae7-4215-4bcb-9801-18694a14b4ac" />
+ 
+> 
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🚧 Coming Soon
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- 📄 Upload `.docx` invoice templates
+- 🧠 Auto-fill values and generate downloadable invoice
+- 📨 Email-ready output or PDF download
+- ✅ Field validation and user feedback
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+
+## 🛠 Tech Stack
+
+- [React](https://reactjs.org/)
+- [Vite](https://vitejs.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+
+---
+
+## 🚀 Getting Started
+
+```bash
+git clone https://github.com/yourusername/invogen.git
+cd invogen
+npm install
+npm run dev
