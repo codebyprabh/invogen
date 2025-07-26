@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import thumb from "../assets/marketplace-thumb.png";
+import MarketPlace from "./Modals/MarketplaceModal";
+
+import mktlogo from "../assets/marketplace-logo.png";
 
 const InvoiceForm: React.FC = () => {
   const [name, setName] = useState("");
@@ -13,13 +16,24 @@ const InvoiceForm: React.FC = () => {
   const [payrate, setPayrate] = useState("");
   const [weekDue, setWeekDue] = useState("");
   const [weekEnding, setWeekEnding] = useState("");
+  const [accountName, setAccountName] = useState("");
+  const [accountNumber, setAccountNumber] = useState("");
+  const [bsb, setBsb] = useState("");
   const [gst, setGst] = useState(true);
+  
+
+  // MODALS
+  const [isMarketModalOpen, setIsMarketModalOpen] = useState(false);
+  const [selectedTemplate, setSelectedTemplate] = useState<{
+    title: string;
+    file: string;
+  } | null>(null);
 
   return (
     <div className="flex flex-col items-center px-4 py-6">
       <h2 className="text-2xl font-bold mb-6">Get Started...</h2>
       <form className="w-full max-w-3xl   ">
-        <div className="bg-neutral-100 border-0 rounded-md py-8 px-6 grid grid-cols-1 md:grid-cols-2 gap-2">
+        <div className="bg-neutral-100/25 shadow rounded-md py-8 px-6 grid grid-cols-1 md:grid-cols-2 gap-2">
           {/* LEFT COLUMN */}
           <div>
             <div className="flex items-center m-4">
@@ -115,7 +129,7 @@ const InvoiceForm: React.FC = () => {
               />
             </div>
           </div>
-
+          {/* RIGHT COLUMN */}
           <div>
             <div className="flex items-center m-4">
               <label className="font-semibold w-24" htmlFor="invoiceNum">
@@ -196,32 +210,95 @@ const InvoiceForm: React.FC = () => {
               />
             </div>
           </div>
-
-          <div className="flex items-center m-4">
-            <label className="font-semibold w-24" htmlFor="template">
-              Template:
-            </label>
-            <a href="/marketplace" id="template">
-              <img
-                className="cursor-pointer w-38 h-auto transition-transform duration-200 hover:scale-105"
-                src={thumb}
-                alt="Choose Template"
+          {/* SECOND ROW */}
+          <div>
+            <h2 className="text-lg font-bold">Payable To:</h2>
+            <div className="flex items-center m-4">
+              <label className="font-semibold w-24" htmlFor="accountName">
+                Bank Name:
+              </label>
+              <input
+                className="ml-4 color-grey text-grey flex-1 border-b-2 text-sm focus:outline-none focus:ring-0"
+                id="accountName"
+                name="accountName"
+                type="text"
+                placeholder="e.g. John Doe"
+                value={accountName}
+                onChange={(e) => setAccountName(e.target.value)}
               />
-            </a>
+            </div>
+            <div className="flex items-center m-4">
+              <label className="font-semibold w-24" htmlFor="accountNumber">
+                Account No:
+              </label>
+              <input
+                className="ml-4 color-grey text-grey flex-1 border-b-2 text-sm focus:outline-none focus:ring-0"
+                id="accountNumber"
+                name="accountNumber"
+                type="text"
+                placeholder="e.g. 11000000"
+                value={accountNumber}
+                onChange={(e) => setAccountNumber(e.target.value)}
+              />
+            </div>
+
+            <div className="flex items-center m-4">
+              <label className="font-semibold w-24" htmlFor="bsb">
+                BSB:
+              </label>
+              <input
+                className="ml-4 color-grey text-grey flex-1 border-b-2 text-sm focus:outline-none focus:ring-0"
+                id="bsb"
+                name="bsb"
+                type="text"
+                placeholder="e.g. 00001"
+                value={bsb}
+                onChange={(e) => setBsb(e.target.value)}
+              />
+            </div>
           </div>
 
-          <div className="flex items-center m-4">
-            <label className="font-semibold w-24" htmlFor="gst">
-              Include GST?
-            </label>
-            <input
-              className="cursor-pointer ml-4 color-grey text-grey"
-              id="gst"
-              name="gst"
-              type="checkbox"
-              checked={gst}
-              onChange={(e) => setGst(e.target.checked)}
-            />
+          <div>
+            <div className="flex items-center m-4">
+              <label className="font-semibold w-24" htmlFor="template">
+                Template:
+              </label>
+              {selectedTemplate ? (
+                <>
+                  <span className="text-sm text-gray-600 font-medium">
+                    {selectedTemplate.title}
+                  </span>
+                  <img
+                    id="template"
+                    className="cursor-pointer w-9 ml-6 h-auto transition-transform duration-200 hover:scale-105"
+                    src={mktlogo}
+                    alt="Choose Template"
+                    onClick={() => setIsMarketModalOpen(true)}
+                  />
+                </>
+              ) : (
+                <img
+                  id="template"
+                  className="cursor-pointer w-38 h-auto transition-transform duration-200 hover:scale-105"
+                  src={thumb}
+                  alt="Choose Template"
+                  onClick={() => setIsMarketModalOpen(true)}
+                />
+              )}
+            </div>
+            <div className="flex items-center m-4">
+              <label className="font-semibold w-28" htmlFor="gst">
+                Include GST?
+              </label>
+              <input
+                className="cursor-pointer ml-4 color-grey text-grey"
+                id="gst"
+                name="gst"
+                type="checkbox"
+                checked={gst}
+                onChange={(e) => setGst(e.target.checked)}
+              />
+            </div>
           </div>
         </div>
         <div className="flex justify-center">
@@ -233,6 +310,15 @@ const InvoiceForm: React.FC = () => {
           </button>
         </div>
       </form>
+      {isMarketModalOpen && (
+        <MarketPlace
+          onClose={() => setIsMarketModalOpen(false)}
+          onTemplateSelect={(template) => {
+            setSelectedTemplate(template);
+            setIsMarketModalOpen(false);
+          }}
+        />
+      )}
     </div>
   );
 };
