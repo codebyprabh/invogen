@@ -34,7 +34,7 @@ const MarketPlace: React.FC<MarketPlaceProps> = ({ onClose, onTemplateSelect }) 
           onClick={() => {
             onTemplateSelect({
               title:"Classic Light",
-              file: "../../assets/inv-temp-01-dark.png"
+              file: "templates/classic-template.docx"
             })
             onClose();
           }}
@@ -43,7 +43,7 @@ const MarketPlace: React.FC<MarketPlaceProps> = ({ onClose, onTemplateSelect }) 
           onClick={() => {
             onTemplateSelect({
               title:"Classic Dark",
-              file: "../../assets/inv-temp-01-dark.png"
+              file: "templates/classic-template.docx"
             })
             onClose();
           }}
