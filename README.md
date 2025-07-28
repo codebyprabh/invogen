@@ -22,7 +22,8 @@ Designed for freelancers and contractors who want to create polished `.docx` inv
 
 ## 📷 Preview
 
-> <img width="1372" height="890" alt="Invo-Gen Screenshot" src="https://github.com/user-attachments/assets/06171ae7-4215-4bcb-9801-18694a14b4ac" />
+<img width="1082" height="737" alt="image" src="https://github.com/user-attachments/assets/ed37945f-304f-4449-a2e5-c898730ccc1e" />
+
 
 ---
 
