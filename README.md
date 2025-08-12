@@ -22,7 +22,7 @@ Designed for freelancers and contractors who want to create polished `.docx` inv
 
 ## 📷 Preview
 
-<img width="1082" height="737" alt="image" src="https://github.com/user-attachments/assets/ed37945f-304f-4449-a2e5-c898730ccc1e" />
+<img width="1467" height="785" alt="image" src="https://github.com/user-attachments/assets/b766c3e1-c463-485d-9e13-70bc78a0e86f" />
 
 
 ---
